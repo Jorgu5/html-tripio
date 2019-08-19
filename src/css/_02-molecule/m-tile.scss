@@ -25,9 +25,15 @@
 		&_error {
 			color: $error_color;
 		}
+		&_warning {
+			color: $warning_color;
+		}
 	}
 	&__image {
 		height: 65px;
+		&_big {
+			height: auto;
+		}
 	}
 	&:focus,
 	&:hover {

@@ -6,4 +6,35 @@
 	justify-content: center;
 	grid-gap: $margin1;
 	margin: 32px auto;
+	&_long {
+		grid-template-columns: 1fr;
+		.m-tile {
+			display: flex;
+			align-items: center;
+			&__title {
+				margin-top: 0;
+				font-weight: 100;
+				flex: 2 0 50%;
+				text-align: left;
+			}
+			&__value {
+				margin-top: 0;
+				font-size: 16px;
+				flex: 0 2 25%;
+			}
+		}
+		.a-button {
+			width: 120px;
+			height: auto;
+			margin: auto;
+			font-size: 12px;
+			color: $font_color;
+			border: 2px solid $brand_light;
+			padding: $margin /2;
+			&:hover,
+			&:focus {
+				border-color: #000;
+			}
+		}
+	}
 }
