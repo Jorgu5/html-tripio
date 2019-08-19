@@ -76,25 +76,6 @@ gulp.task("imagemin", function() {
 		.pipe(gulp.dest(path.dist_img));
 });
 
-gulp.task("fonts:compile", function(cb) {
-	var dirList = [];
-	fs.readdirSync(path.src_fonts).forEach(function(file) {
-		if (/^[^_]*$/g.test(file)) {
-			dirList.push(file);
-		}
-	});
-	return gulp
-		.src(path.src_fonts + "_template/fonts.scss")
-		.pipe(consolidate("lodash", { dirList: dirList }))
-		.pipe(gulp.dest(path.src_css));
-});
-
-gulp.task("fonts:copy", function() {
-	return gulp
-		.src(path.src_fonts + "**/*.{ttf,woff,woff2,eof,svg}")
-		.pipe(gulp.dest(path.dist_fonts));
-});
-
 gulp.task("bower", function() {
 	return bower();
 });
@@ -120,10 +101,6 @@ gulp.task("watch", function() {
 	);
 });
 
-gulp.task("fonts", function(cb) {
-	runSequence("fonts:compile", "css", "fonts:copy", cb);
-});
-
 gulp.task("default", function(cb) {
-	runSequence("bower", "html", "css", "fonts", "imagemin", cb);
+	runSequence("bower", "html", "css", "imagemin", cb);
 });

@@ -1,11 +1,6 @@
-# Atomic Starter
-
 > Folder structure for atomic design projects inspired by Brad Frost's book. (WIP)
 
 ## Installation
-
-To get started, make sure you have [node.js](http://nodejs.org/) installed.
-Open the terminal and change directory to `atomic-starter/`.
 
 * Install npm dependencies.
 ```
@@ -25,7 +20,7 @@ gulp watch
 You need to work in the `src` folder, where all your source files should be located. The project structure looks something like this:
 
 ```
-atomic-starter/
+tripio-app/
 └── src/
 		├── assets/
 		│		├── fonts/
@@ -39,19 +34,19 @@ atomic-starter/
 Inside the `src/css` and `src/html` folders we have a similar folder structure that follows the atomic design principles:
 ```
 css/
-	├── __00-toolbox/
-	├── __01-elements/
-	├── __02-components/
-	├── __03-layouts/
-	└── __04-pages/
+	├── __00-atom/
+	├── __01-molecule/
+	├── __02-organism/
+	├── __03-template/
+	└── __04-views/
 
 ```
 
 We have 4 levels of abstraction in this proposal based on http://bradfrost.com/blog/post/atomic-web-design/
 ```
-Level 1: Elements (Atoms)
-Level 2: Components (Molecules)
-Level 3: Layouts (Organisms)
+Level 1: Atom 
+Level 2: Molecule 
+Level 3: Organism 
 Level 4: Pages (Templates/pages)
 ```
 For any other tool or utility we might need in the css or html folders we have a `Level 0: Toolbox` which has parts of the css or html that are not directly useable on their own. This could be mixins, variables like colors and sizes, partials or settings.
@@ -66,50 +61,11 @@ To have a better understanding of the atomic design pattern and how it helps mai
 * [http://cssguidelin.es/](http://cssguidelin.es/)
 * [BEM Methodology](https://en.bem.info/methodology/)
 
-
-
-## Gulp tasks
-In the terminal make sure you are in the `atomic-starter/` directory.
-
-
 ### Compile Sass
 ```
 gulp css
 ```
 This will compile all the `.scss` files in `src/css/` and concatenate them to a single file located in `dist/css/styles.css`, except for `fonts.scss` which will be compiled to a separared css file `dist/css/fonts.css`.
-
-### Compile Pug
-```
-gulp html
-```
-This will compile to html all the `.pug` files in `src/html/` and place them into the folder located in `dist/`.
-
-### Compile Javascript
-```
-gulp js
-```
-This will transpile all the `.js` files in `src/js/` export it to a file located in `dist/js/app.js`. It supports ES6. You can install js plugins with [bower](http://bower.io).
-
-### Generate sprites
-
-```
-gulp sprite
-```
-This task will create the `sprite.png` located at `dist/img/` which will also be the optimized (minified) image version.
-In order to use the mixin that this task creates you have to follow this structure in any of your `.scss` files.
-```
-.icon {
-	@include sprite($iconName);
-}
-```
-Which will render to css. Notice that the `$iconName` variable name has to be the same as your image file name `src/assets/img/sprite/iconName.png`.
-
-## Generate icons
-
-```
-gulp icons
-```
-This task will generate the `iconFont` font for the icons that you can place in the `src/assets/icons/` with the `*.svg` extension.
 
 ## Generate font styles
 ```
@@ -123,28 +79,8 @@ gulp imagemin
 ```
 This task will create a copy of all your image files located in `src/assets/img/` and create an optimized and lighter version in the folder `dist/img/`.
 
-
 ### Run all tasks
 ```
 gulp
 ```
 This task runs all the previous tasks.
-
-
-## Styleguide
-
-```
-npm run styleguide
-```
-
-This will generate a living styleguide with Nucleus in the `styleguide/` folder based on your DocBlock annotations. For more information visit: 
-
-https://holidaypirates.github.io/nucleus/
-
-## Resources
-* [Pug](http://pugjs.org/)
-* [Sass](http://sass-lang.com/) also uses [Lost (Grid System)](https://github.com/peterramsing/lost) and [Breakpoint Slicer (Media queries)](https://github.com/lolmaus/breakpoint-slicer)
-* [Nucleus](https://holidaypirates.github.io/nucleus/)
-* [Gulp](http://gulpjs.com/)
-* [Bower](http://bower.io)
-
