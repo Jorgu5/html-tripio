@@ -1,0 +1,56 @@
+.m-avatar {
+	margin: $margin2 auto 0;
+	&__el {
+		width: 125px;
+		height: 125px;
+		position: relative;
+		transition: $transition;
+		margin: 0 auto;
+		&::after {
+			content: "";
+			display: block;
+			border-radius: 25px;
+			background-color: $brand_color;
+			background-image: url("../img/cogwheel.svg");
+			background-repeat: no-repeat;
+			background-position: 5px;
+			background-size: 15px;
+			width: 25px;
+			height: 25px;
+			position: absolute;
+			top: 5px;
+			right: 5px;
+			z-index: 3;
+		}
+		&:hover,
+		&:focus {
+			&::after {
+				background-color: #000;
+			}
+		}
+	}
+	&__image,
+	&__el_add {
+		border-radius: 100%;
+		position: relative;
+		display: flex;
+		align-items: center;
+		font-size: 14px;
+		font-weight: bold;
+		text-transform: uppercase;
+		cursor: pointer;
+		z-index: 2;
+		position: relative;
+	}
+	&__el_add {
+		background: $brand_light;
+		justify-content: center;
+		border: 2px solid $brand_color;
+		span {
+			display: block;
+		}
+	}
+	&__image {
+		border: 2px solid $brand_color;
+	}
+}

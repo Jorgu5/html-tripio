@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<title>Tripio - Rejestracja</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+		/>
+		<meta name="title" content="" />
+		<meta name="url" content="" />
+		<meta name="author" content="" />
+		<meta name="robots" content="index,follow" />
+		<link
+			href="../img/favicon.png"
+			rel="icon"
+			type="../image/vnd.microsoft.icon"
+		/>
+		<link
+			href="../img/favicon.png"
+			rel="shortcut icon"
+			type="../image/vnd.microsoft.icon"
+		/>
+		<link href="../img/favicon.png" rel="shortcut icon" type="image/x-icon" />
+		<link href="../img/favicon.png" rel="image_src" type="image/jpeg" />
+		<link rel="stylesheet" href="../css/fonts.css" />
+		<link rel="stylesheet" href="../css/styles.css" />
+	</head>
+	<body class="is-guest">
+        <div class="wrapper">
+            <div class="l-header">
+		        <div class="l-container">
+					<div class="m-top">
+						<h1 class="m-top__title">Rejestracja</h1>
+					</div>
+					<div class="m-brand">
+						<img
+							width="125"
+							alt="brand logo color"
+							src="../img/logo_brand@1x.svg"
+						/>
+						<p class="t-text">
+							Łączymy osoby prywatne w celach weryfikacyjnych oraz <br />
+							bezpieczeństwa, prosimy użytkowników o zarejestrowanie się.
+						</p>
+					</div>
+                </div>
+            </div>
+            <div class="l-main">
+                <div class="l-container">
+				    <form class="o-form" action="">
+                        <div class="o-form__field o-form__field_wrap">
+                            <label for="email" class="a-label">Telefon</label>
+                            <input
+                                id="phone"
+                                name="phone"
+                                type="tel"
+                                class="a-input"
+                                placeholder="Twój numer telefonu"
+                            />
+                            <span class="a-notification a-notification_error">
+                                Nie poprawny numer telefonu.
+                            </span>
+                        </div>
+                        <div class="o-form__field o-form__field_wrap">
+                            <label for="name" class="a-label">Adres mailowy</label>
+                            <input
+                                id="email"
+                                name="email"
+                                type="email"
+                                class="a-input"
+                                placeholder="tomek@sobolew.ski"
+                            />
+                            <span class="a-notification a-notification_error">
+                                Nie poprawny adres e-mail
+                            </span>
+                        </div>
+                        <div class="o-form__field o-form__field_wrap">
+                            <label for="name" class="a-label">Password</label>
+                            <input
+                                id="pass"
+                                name="pass"
+                                type="password"
+                                class="a-input"
+                                placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
+                            />
+                            <span class="a-notification a-notification_error">
+                                Hasło powinno mieć minimum 8 znaków.
+                            </span>
+                        </div>
+                        <button class="a-button a-button_active">
+                            Przejdź dalej
+                        </button>
+                    </div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

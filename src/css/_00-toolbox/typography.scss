@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,600&display=swap");
+
+.t-text {
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5rem;
+	text-align: center;
+	max-width: 580px;
+	margin: 0 auto;
+	&_intro {
+		color: #fff;
+		font-weight: bold;
+		text-transform: uppercase;
+		text-align: center;
+	}
+	&_right {
+		text-align: right;
+	}
+}
+
+.t-name {
+	font-size: 1.75rem;
+	font-weight: 100;
+	text-align: center;
+	color: #fff;
+}

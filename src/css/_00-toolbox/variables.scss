@@ -5,7 +5,7 @@
  * @nuclide slicer-breakpoints
  * @section variables
  */
-$slicer-breakpoints: 0  400px  600px  800px  1050px;
+$slicer-breakpoints: 0 400px 600px 800px 1050px;
 
 /**
  * Variable personalizada de tamaños para slicer breakpoint que corresponden a los breakpoints de $slicer-breakpoints.
@@ -14,16 +14,30 @@ $slicer-breakpoints: 0  400px  600px  800px  1050px;
  * @nuclide slicer-breakpoint-names
  * @section variables
  */
-$slicer-breakpoint-names:  'xs' 's' 'm' 'l' 'xl';
+$slicer-breakpoint-names: "xs" "s" "m" "l" "xl";
 
 /** @color Color principal */
-$brand_color : #2232c3;
+$brand_color: #ef4023;
+
+$brand_gradient: linear-gradient(0.25turn, #ea381f, #f6891d);
+$brand_gradient_inverse: linear-gradient(0.25turn, #f6891d, #ea381f);
+$brand_gradient_radial: radial-gradient(circle, #f6891d 0%, #ea381f 100%);
+$brand_gradient_radial_inverse: radial-gradient(
+	circle,
+	#ea381f 0%,
+	#f6891d 100%
+);
+
+$brand_light: #e4e4e4;
 
 /** @color Color complementario */
-$secondary_color : tomato;
+$secondary_color: #fff;
 
 /** @color Color de la fuente */
-$font_color : black;
+$font_color: #262626;
+
+$error_color: #ea371d;
+$valid_color: #00ff86;
 
 /**
  * Ancho del contenedor del sitio
@@ -31,18 +45,24 @@ $font_color : black;
  * @nuclide container_width
  * @section variables
  */
-$container_width : 1140px;
 
-$border_radius : 5px;
+$margin: 10px;
+$margin1: 25px;
+$margin2: 50px;
+$margin3: 75px;
+$margin4: 100px;
+
+$input-space: 20px;
+$input-padding: 15px 15px 15px $margin2;
+
+$container_max: 580px;
+$container_min: 420px;
+
+$border_radius: 25px;
+$box-shadow: 2px 0px 8px #d6d6d6;
 $transition: 0.3s all ease-in;
-$input_height: 2.5rem;
+$input_height: 3.5rem;
 
-$family1:  'Lato', 'arial', 'sans-serif';
+$family1: "Poppins", "arial", "sans-serif";
 
-/**
- * El tamaño de fuente base para <html>
- *
- * @nuclide base_font
- * @section variables
- */
-$base_font: 16px;
+$base_font: 14px;

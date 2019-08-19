@@ -1,0 +1,20 @@
+.l-container {
+	min-width: $container_min;
+	max-width: $container_max;
+	margin: 0 auto;
+	lost-utility: clearfix;
+}
+
+@include mobile {
+	.l-container {
+		padding-left: 5% !important;
+		padding-right: 5% !important;
+	}
+}
+
+@include tablet {
+	.l-container {
+		padding-left: 7% !important;
+		padding-right: 7% !important;
+	}
+}

@@ -11,69 +11,124 @@ $icon-home: x y offset_x offset_y width height total_width total_height image_pa
 At the bottom of this section, we provide information about the spritesheet itself
 $spritesheet: width height image $spritesheet-sprites;
 */
-$ico1-name: 'ico1';
-$ico1-x: 0px;
-$ico1-y: 0px;
-$ico1-offset-x: 0px;
-$ico1-offset-y: 0px;
-$ico1-width: 27px;
-$ico1-height: 27px;
-$ico1-total-width: 56px;
-$ico1-total-height: 27px;
-$ico1-image: '../img/sprite.png';
-$ico1: (0px, 0px, 0px, 0px, 27px, 27px, 56px, 27px, '../img/sprite.png', 'ico1', );
-$ico2-name: 'ico2';
-$ico2-x: 29px;
-$ico2-y: 0px;
-$ico2-offset-x: -29px;
-$ico2-offset-y: 0px;
-$ico2-width: 27px;
-$ico2-height: 27px;
-$ico2-total-width: 56px;
-$ico2-total-height: 27px;
-$ico2-image: '../img/sprite.png';
-$ico2: (29px, 0px, -29px, 0px, 27px, 27px, 56px, 27px, '../img/sprite.png', 'ico2', );
-$spritesheet-width: 56px;
-$spritesheet-height: 27px;
-$spritesheet-image: '../img/sprite.png';
-$spritesheet-sprites: ($ico1, $ico2, );
-$spritesheet: (56px, 27px, '../img/sprite.png', $spritesheet-sprites, );
+$arrow-left-name: "arrow-left";
+$arrow-left-x: 33px;
+$arrow-left-y: 26px;
+$arrow-left-offset-x: -33px;
+$arrow-left-offset-y: -26px;
+$arrow-left-width: 15px;
+$arrow-left-height: 27px;
+$arrow-left-total-width: 65px;
+$arrow-left-total-height: 69px;
+$arrow-left-image: "../img/sprite.png";
+$arrow-left: (
+	33px,
+	26px,
+	-33px,
+	-26px,
+	15px,
+	27px,
+	65px,
+	69px,
+	"../img/sprite.png",
+	"arrow-left"
+);
+$burger-name: "burger";
+$burger-x: 33px;
+$burger-y: 0px;
+$burger-offset-x: -33px;
+$burger-offset-y: 0px;
+$burger-width: 32px;
+$burger-height: 24px;
+$burger-total-width: 65px;
+$burger-total-height: 69px;
+$burger-image: "../img/sprite.png";
+$burger: (
+	33px,
+	0px,
+	-33px,
+	0px,
+	32px,
+	24px,
+	65px,
+	69px,
+	"../img/sprite.png",
+	"burger"
+);
+$help-name: "help";
+$help-x: 0px;
+$help-y: 0px;
+$help-offset-x: 0px;
+$help-offset-y: 0px;
+$help-width: 31px;
+$help-height: 31px;
+$help-total-width: 65px;
+$help-total-height: 69px;
+$help-image: "../img/sprite.png";
+$help: (
+	0px,
+	0px,
+	0px,
+	0px,
+	31px,
+	31px,
+	65px,
+	69px,
+	"../img/sprite.png",
+	"help"
+);
+$marker-name: "marker";
+$marker-x: 0px;
+$marker-y: 33px;
+$marker-offset-x: 0px;
+$marker-offset-y: -33px;
+$marker-width: 23px;
+$marker-height: 36px;
+$marker-total-width: 65px;
+$marker-total-height: 69px;
+$marker-image: "../img/sprite.png";
+$marker: (
+	0px,
+	33px,
+	0px,
+	-33px,
+	23px,
+	36px,
+	65px,
+	69px,
+	"../img/sprite.png",
+	"marker"
+);
+$spritesheet-width: 65px;
+$spritesheet-height: 69px;
+$spritesheet-image: "../img/sprite.png";
+$spritesheet-sprites: ($arrow-left, $burger, $help, $marker);
+$spritesheet: (65px, 69px, "../img/sprite.png", $spritesheet-sprites);
 
-/*
-The provided mixins are intended to be used with the array-like variables
-
-.icon-home {
-  @include sprite-width($icon-home);
-}
-
-.icon-email {
-  @include sprite($icon-email);
-}
-*/
 @mixin sprite-width($sprite) {
-  width: nth($sprite, 5);
+	width: nth($sprite, 5);
 }
 
 @mixin sprite-height($sprite) {
-  height: nth($sprite, 6);
+	height: nth($sprite, 6);
 }
 
 @mixin sprite-position($sprite) {
-  $sprite-offset-x: nth($sprite, 3);
-  $sprite-offset-y: nth($sprite, 4);
-  background-position: $sprite-offset-x  $sprite-offset-y;
+	$sprite-offset-x: nth($sprite, 3);
+	$sprite-offset-y: nth($sprite, 4);
+	background-position: $sprite-offset-x $sprite-offset-y;
 }
 
 @mixin sprite-image($sprite) {
-  $sprite-image: nth($sprite, 9);
-  background-image: url(#{$sprite-image});
+	$sprite-image: nth($sprite, 9);
+	background-image: url(#{$sprite-image});
 }
 
 @mixin sprite($sprite) {
-  @include sprite-image($sprite);
-  @include sprite-position($sprite);
-  @include sprite-width($sprite);
-  @include sprite-height($sprite);
+	@include sprite-image($sprite);
+	@include sprite-position($sprite);
+	@include sprite-width($sprite);
+	@include sprite-height($sprite);
 }
 
 /*
@@ -83,10 +138,10 @@ The `sprites` mixin generates identical output to the CSS template
 @include sprites($spritesheet-sprites);
 */
 @mixin sprites($sprites) {
-  @each $sprite in $sprites {
-    $sprite-name: nth($sprite, 10);
-    .#{$sprite-name} {
-      @include sprite($sprite);
-    }
-  }
+	@each $sprite in $sprites {
+		$sprite-name: nth($sprite, 10);
+		.#{$sprite-name} {
+			@include sprite($sprite);
+		}
+	}
 }

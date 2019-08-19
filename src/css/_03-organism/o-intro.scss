@@ -1,0 +1,26 @@
+.o-intro {
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 100vh;
+	width: 100vw;
+}
+
+.o-intro__box {
+	display: flex;
+	height: 50%;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	.a-button {
+		width: 250px;
+	}
+}
+
+.o-intro__box_search {
+	background: $brand_gradient_radial;
+}
+
+.o-intro__box_offer {
+	background: $brand_gradient_radial_inverse;
+}

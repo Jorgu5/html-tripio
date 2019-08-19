@@ -1,212 +1,129 @@
-var gulp = require('gulp');
-var pug = require('gulp-pug');
-var gutil = require('gulp-util');
-var sass = require('gulp-sass');
-var sassGlob = require('gulp-sass-glob');
+var gulp = require("gulp");
+var validator = require("gulp-html");
+var sass = require("gulp-sass");
+var sassGlob = require("gulp-sass-glob");
 var spritesmith = require("gulp.spritesmith");
-var imagemin = require('gulp-imagemin');
-var pngquant = require('imagemin-pngquant');
-var runSequence = require('run-sequence');
-var browserSync = require('browser-sync');
-var concat = require('gulp-concat');
-var jshint = require('gulp-jshint');
-var uglify = require('gulp-uglify');
-var iconfont = require('gulp-iconfont');
+var imagemin = require("gulp-imagemin");
+var pngquant = require("imagemin-pngquant");
+var runSequence = require("run-sequence");
+var browserSync = require("browser-sync");
+var iconfont = require("gulp-iconfont");
 var consolidate = require("gulp-consolidate");
-var plumberNotifier = require('gulp-plumber-notifier');
-var uglify = require('gulp-uglify');
-var babel = require('gulp-babel');
-var rename = require("gulp-rename");
-var postcss = require('gulp-postcss');
-var sourcemaps = require('gulp-sourcemaps');
-var autoprefixer = require('autoprefixer');
-var lost = require('lost');
-var bower = require('gulp-bower');
-var fs = require('fs');
-var baseHtml  = __dirname + "/src/html";
-
-var config = {
-	is_minified: false
-}
+var plumberNotifier = require("gulp-plumber-notifier");
+var postcss = require("gulp-postcss");
+var autoprefixer = require("autoprefixer");
+var lost = require("lost");
+var bower = require("gulp-bower");
+var fs = require("fs");
 
 var path = {
-	src_assets: 'src/assets/',
-	src_html: 'src/html/_04-pages/',
-	src_css: 'src/css/',
-	src_js: 'src/js/',
-	src_img: 'src/assets/img/',
-	src_fonts: 'src/assets/fonts/',
-	src_icons: 'src/assets/icons/',
-	src_sprite: 'src/assets/img/sprite/*.png',
+	src_assets: "src/assets/",
+	src_html: "src/html/",
+	src_css: "src/css/",
+	src_img: "src/assets/img/",
+	src_fonts: "src/assets/fonts/",
+	src_icons: "src/assets/icons/",
+	src_sprite: "src/assets/img/sprite/*.png",
 
-	dist: './dist/',
-	dist_html: './dist/',
-	dist_css: './dist/css/',
-	dist_js: './dist/js/',
-	dist_img: './dist/img/',
-	dist_fonts: './dist/fonts/',
-	bower: './dist/js/libs/'
+	dist: "./dist/",
+	dist_html: "./dist/",
+	dist_css: "./dist/css/",
+	dist_img: "./dist/img/",
+	dist_fonts: "./dist/fonts/",
+	bower: "./dist/js/libs/"
 };
 
-
-gulp.task('css', function () {
-	return gulp.src([
-		path.src_css + '**/*.scss',
-		'!' + path.src_css + '**/**/_**/*.scss',
-		'!' + path.src_css + '_**/*.scss',
-		'!' + path.src_css + '_**/**/*.scss',
-		'!' + path.src_css + '**/_*.scss'
-	])
-	.pipe(plumberNotifier())
-	.pipe(sassGlob())
-	.pipe(sass(
-		{
-			includePaths:
-			[
-				path.bower + 'breakpoint-sass/stylesheets',
-				path.bower + 'breakpoint-slicer/stylesheets'
-			],
-			outputStyle:'compressed'
-		 }
-	))
-	.pipe(postcss([
-			lost(),
-			autoprefixer()
-		]))
-	.pipe(gulp.dest(path.dist_css));
-});
-
-gulp.task('html', function() {
-	gulp.src([
-		path.src_html + '*.pug',
-		path.src_html + '**/*.pug',
-		path.src_html + '**/**/*.pug',
-		'!' + path.src_html + '_**/*.pug',
-		'!' + path.src_html + '/**/_**/*.pug',
-		'!' + path.src_html + '/**/_*.pug'
+gulp.task("css", function() {
+	return gulp
+		.src([
+			path.src_css + "**/*.scss",
+			"!" + path.src_css + "**/**/_**/*.scss",
+			"!" + path.src_css + "_**/*.scss",
+			"!" + path.src_css + "_**/**/*.scss",
+			"!" + path.src_css + "**/_*.scss"
 		])
 		.pipe(plumberNotifier())
-		.pipe(pug({
-			pretty : config.is_minified,
-			basedir: baseHtml
-		}))
-		// .pipe(rename({
-		//     extname: ".phtml"
-		// }))
+		.pipe(sassGlob())
+		.pipe(
+			sass({
+				includePaths: [
+					path.bower + "breakpoint-sass/stylesheets",
+					path.bower + "breakpoint-slicer/stylesheets"
+				],
+				outputStyle: "compressed"
+			})
+		)
+		.pipe(postcss([lost(), autoprefixer()]))
+		.pipe(gulp.dest(path.dist_css));
+});
+
+gulp.task("html", function() {
+	return gulp
+		.src([path.src_html + "*.html", path.src_html + "**/*/*.html"])
 		.pipe(gulp.dest(path.dist_html));
 });
 
-gulp.task('js', function(cb) {
-		return gulp.src([
-		path.src_js + '**/*.js',
-		'!' + path.src_js + '_**/*.js',
-		'!' + path.src_js + '**/_*.js'
-	])
-	.pipe(plumberNotifier())
-	.pipe(jshint())
-	.pipe(jshint.reporter('jshint-stylish'))
-	.pipe(jshint.reporter('fail'))
-	.pipe(babel({
-			presets: ['es2015']
-	}))
-	.pipe(uglify({
-		mangle  : false,
-		compress: {
-			drop_console: false,
-			drop_debugger: true
-		},
-		output: { beautify: !config.is_minified }
-	}))
-	.pipe(gulp.dest(path.dist_js));
+gulp.task("imagemin", function() {
+	return gulp
+		.src(path.src_img + "**.{gif,jpg,png,svg}")
+		.pipe(
+			imagemin({
+				progressive: true,
+				// svgoPlugins: [{removeViewBox: false}],
+				use: [pngquant()]
+			})
+		)
+		.pipe(gulp.dest(path.dist_img));
 });
 
-gulp.task('sprite', function () {
-	var spriteData = gulp.src(path.src_sprite).pipe(spritesmith({
-		imgName: 'sprite.png',
-		cssName: 'sprite.scss',
-		padding: 2,
-		algorithm: 'binary-tree',
-		imgPath: '../img/sprite.png'
-	}));
-	// Pipe image stream through image optimizer and onto disk
-	spriteData.img.pipe(gulp.dest(path.dist_img));
-	//spriteData.img.pipe(gulp.dest(path.src_img)); // No optimization
-	spriteData.css.pipe(gulp.dest(path.src_css + '_00-toolbox/'));
-});
-
-gulp.task('imagemin', function () {
-	return gulp.src(path.src_img + '**.{gif,jpg,png,svg}')
-	.pipe(imagemin({
-		progressive: true,
-		// svgoPlugins: [{removeViewBox: false}],
-		use: [pngquant()]
-	}))
-	.pipe(gulp.dest(path.dist_img));
-	});
-
-
-gulp.task('fonts:compile', function(cb){
-	var dirList = []
-	fs.readdirSync(path.src_fonts).forEach(function(file){
-		if(/^[^_]*$/g.test(file)){
-			dirList.push(file)
+gulp.task("fonts:compile", function(cb) {
+	var dirList = [];
+	fs.readdirSync(path.src_fonts).forEach(function(file) {
+		if (/^[^_]*$/g.test(file)) {
+			dirList.push(file);
 		}
 	});
-	return gulp.src(path.src_fonts + '_template/fonts.scss')
-		.pipe(consolidate('lodash', { dirList: dirList }))
+	return gulp
+		.src(path.src_fonts + "_template/fonts.scss")
+		.pipe(consolidate("lodash", { dirList: dirList }))
 		.pipe(gulp.dest(path.src_css));
 });
 
-gulp.task('icons:compile', function(cb){
-	return gulp.src(path.src_icons + '*.svg')
-		.pipe(iconfont({
-			normalize: true,
-			fontName: 'iconFonts-webfont',
-			appendUnicode: false
-		}))
-		.on('codepoints', function(codepoints, options) {
-			gulp.src(path.src_icons + '_template/icons.scss') //Template
-			.pipe(consolidate('lodash', {
-				glyphs: codepoints,
-				fontName: 'iconFonts'
-			}))
-			.pipe(gulp.dest(path.src_css + '_00-toolbox/'));
-		})
-		.pipe(gulp.dest(path.src_fonts + 'iconFonts'));
+gulp.task("fonts:copy", function() {
+	return gulp
+		.src(path.src_fonts + "**/*.{ttf,woff,woff2,eof,svg}")
+		.pipe(gulp.dest(path.dist_fonts));
 });
 
-
-gulp.task('fonts:copy', function() {
-	return gulp.src(path.src_fonts + '**/*.{ttf,woff,woff2,eof,svg}')
-	.pipe(gulp.dest(path.dist_fonts));
-});
-
-gulp.task('bower', function() {
+gulp.task("bower", function() {
 	return bower();
 });
 
-gulp.task('browserSync', function(){
+gulp.task("browserSync", function() {
 	return browserSync({
 		notify: true,
 		server: {
-			baseDir : [path.dist_html]
+			baseDir: [path.dist_html]
 		}
 	});
 });
 
-gulp.task('watch', function() {
-	gulp.start('browserSync');
-	gulp.watch([path.src_css + '**/*.scss', path.src_css + '**/**/*.scss'], ['css', browserSync.reload]);
-	gulp.watch([path.src_html + '*.pug', path.src_html + '**/*.pug', path.src_html + '**/**/*.pug'], ['html', browserSync.reload]);
-	gulp.watch([path.src_js + '**/*.js'], ['js', browserSync.reload]);
+gulp.task("watch", function() {
+	gulp.start("browserSync");
+	gulp.watch(
+		[path.src_css + "**/*.scss", path.src_css + "**/**/*.scss"],
+		["css", browserSync.reload]
+	);
+	gulp.watch(
+		[path.src_html + "*.html", path.src_html + "**/*.html"],
+		["html", browserSync.reload]
+	);
 });
 
-gulp.task('fonts', function(cb){
-	runSequence('fonts:compile', 'css', 'fonts:copy', cb)
+gulp.task("fonts", function(cb) {
+	runSequence("fonts:compile", "css", "fonts:copy", cb);
 });
-gulp.task('icons', function(cb){
-	runSequence('icons:compile', 'fonts:compile', 'css', 'fonts:copy', cb)
-});
-gulp.task('default', function(cb) {
-	runSequence('bower', 'html', 'css', 'js', 'fonts', 'icons', 'sprite', 'imagemin', cb);
+
+gulp.task("default", function(cb) {
+	runSequence("bower", "html", "css", "fonts", "imagemin", cb);
 });

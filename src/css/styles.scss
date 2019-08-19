@@ -1,12 +1,25 @@
-@import 'breakpoint';
-@import 'breakpoint-slicer';
+@import "breakpoint";
+@import "breakpoint-slicer";
 @import "**/*.scss";
 
-body {
-    @include mobile {
-        background: indianred;
-    }
-    @include tablet {
-        background: tomato;
-    }
+button {
+	background: none;
+	border: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+	outline: none;
+}
+
+body.is-guest {
+	display: grid;
+	height: 100vh;
+	margin: 0;
+	place-items: center;
+}
+
+body.is-loggedin {
+	background: #f6f6f6;
 }

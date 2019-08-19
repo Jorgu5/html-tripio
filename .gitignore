@@ -3,6 +3,7 @@ node_modules
 
 # dist folder
 dist/
+.history
 
 # zip files
 *.zip

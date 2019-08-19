@@ -1,0 +1,18 @@
+.o-form {
+	&__field {
+		position: relative;
+	}
+	&__field_wrap {
+		min-height: 130px;
+		margin-bottom: $margin;
+	}
+	&__field_line {
+		min-height: 60px;
+	}
+	.a-button {
+		margin-top: $margin2;
+		&:last-child {
+			margin-top: $margin;
+		}
+	}
+}

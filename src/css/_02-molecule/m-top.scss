@@ -1,0 +1,15 @@
+.m-top {
+	border-bottom: 1px solid $brand_light;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	&__title {
+		text-align: center;
+		font-size: 1.25rem;
+		color: $font_color;
+		font-weight: 400;
+	}
+	p {
+		font-size: 1rem;
+		font-weight: 300;
+	}
+}

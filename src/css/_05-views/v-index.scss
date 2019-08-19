@@ -1,0 +1,8 @@
+@import "../_00-toolbox/variables";
+
+body.is-intro {
+	background: $brand-gradient;
+	.m-buttons {
+		margin-top: $margin3;
+	}
+}

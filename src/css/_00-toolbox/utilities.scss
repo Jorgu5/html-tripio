@@ -1,41 +1,33 @@
-@import	'variables';
+@import "variables";
 
 // naming based on suitcss utilities classes
 
 .u-hidden {
-	display: none !important
+	display: none !important;
 }
 
 .u-block {
-	display: block !important
+	display: block !important;
 }
 
 .u-textCenter {
-	text-align: center !important
+	text-align: center !important;
 }
 
 .u-textLeft {
-	text-align: left !important
+	text-align: left !important;
 }
 
 .u-textRight {
-	text-align: right !important
-}
-
-.u-floatLeft {
-	float: left !important
-}
-
-.u-floatRight {
-	float: right !important
+	text-align: right !important;
 }
 
 .u-cf {
-	lost-utility: clearfix
+	lost-utility: clearfix;
 }
 
 .u-normalWeight {
-	font-weight: normal
+	font-weight: normal;
 }
 
 .u-centerBlock {
@@ -44,29 +36,44 @@
 	margin-left: auto;
 }
 .u-mt5 {
-	margin-top: 5px !important
+	margin-top: 5px !important;
 }
 .u-mt10 {
-	margin-top: 10px !important
+	margin-top: 10px !important;
 }
-.u-mt20 {
-	margin-top: 20px !important
+.u-mt25 {
+	margin-top: $margin1;
 }
 .u-mt30 {
-	margin-top: 30px !important
+	margin-top: 30px !important;
 }
+.u-mt50 {
+	margin-top: $margin2;
+}
+
 .u-mb20 {
-	margin-bottom:20px !important
+	margin-bottom: 20px !important;
+}
+.u-mb25 {
+	margin-bottom: $margin1;
 }
 .u-mb30 {
-	margin-bottom: 30px !important
+	margin-bottom: 30px !important;
+}
+.u-mb50 {
+	margin-bottom: $margin2;
 }
 
 .u-mt60 {
-	margin-top: 60px !important
+	margin-top: 60px !important;
+}
+.u-mt75 {
+	margin-top: $margin3;
 }
 
 .u-mb60 {
-	margin-bottom: 60px !important
+	margin-bottom: 60px !important;
 }
-
+.u-mb75 {
+	margin-bottom: $margin3;
+}

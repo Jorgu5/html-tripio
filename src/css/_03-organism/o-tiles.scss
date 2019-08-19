@@ -1,0 +1,9 @@
+.o-tiles {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	max-width: 580px;
+	width: 100%;
+	justify-content: center;
+	grid-gap: $margin1;
+	margin: 32px auto;
+}
