@@ -39,4 +39,7 @@
 	&:hover {
 		box-shadow: none;
 	}
+	&__col + &__col {
+		margin-left: $margin1;
+	}
 }

@@ -1,11 +1,20 @@
 .m-avatar {
-	margin: $margin2 auto 0;
+	&_pos {
+		margin: $margin2 auto 0;
+	}
 	&__el {
-		width: 125px;
-		height: 125px;
+		width: 160px;
+		height: 160px;
 		position: relative;
 		transition: $transition;
 		margin: 0 auto;
+		.m-avatar__image {
+			border: 2px solid $brand_light;
+		}
+	}
+	&__el_profile {
+		width: 125px;
+		height: 125px;
 		&::after {
 			content: "";
 			display: block;

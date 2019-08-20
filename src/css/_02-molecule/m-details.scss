@@ -1,0 +1,13 @@
+.m-details {
+    margin: $margin1 0;
+    &__item {
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: $margin1 /2;
+    }
+    &__icon {
+        margin: 0 $margin 0 0;
+        width: 17px;
+        height: 17px;
+    }
+}

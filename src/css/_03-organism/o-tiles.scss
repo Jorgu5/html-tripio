@@ -37,4 +37,11 @@
 			}
 		}
 	}
+	&_offers {
+		grid-template-columns: 1fr;
+		.m-tile {
+			display: flex;
+			align-items: center;
+		}
+	}
 }

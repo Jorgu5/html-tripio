@@ -1,0 +1,10 @@
+.m-rate {
+  &__path {
+      width: 0;
+      height: 0;
+      position: absolute;
+  }
+  &__star {
+    width: 120px;
+  }
+}
