@@ -41,3 +41,17 @@ $wrappers: expand-width-wrapper !global;
 		@content;
 	}
 }
+
+@mixin iconAsBackground() {
+	background-repeat: no-repeat;
+	background-size: 25px;
+	background-position: 15px 24px;
+}
+
+@mixin absoluteCenter() {
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+}

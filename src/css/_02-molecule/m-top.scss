@@ -8,6 +8,9 @@
 		color: $font_color;
 		font-weight: 400;
 	}
+	&--bar {
+		border-bottom: none;
+	}
 	p {
 		font-size: 1rem;
 		font-weight: 300;

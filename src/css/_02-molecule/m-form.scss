@@ -1,24 +1,54 @@
 .m-form {
-    margin: $input-space 0;
-    .a-input {
-        background: transparent;
-        height: auto;
-        font-size: 16px;
-        border: none;
-        &:focus {
-            height: auto;
+	margin: $input-space 0;
+	&__field {
+		background: #fff;
+		padding: $input_padding;
+		border-radius: $border-radius;
+		box-shadow: $box-shadow;
+		border: 1px solid #fff;
+		margin-bottom: $input-space;
+		&--icon {
+			@include iconAsBackground;
         }
-    }
-    .a-label {
-        font-size: 12px;
-        margin-bottom: $margin /2;
-    }
-    .m-form__field {
-        background: #fff;
-        padding: $input_padding;
-        border-radius: $border-radius;
-        box-shadow: $box-shadow;
-        border: 1px solid #fff;
-        margin-bottom: $input-space;
+        &--range {
+            padding: 10px 20px;
+        }
+		&--location {
+			background-image: url("../img/marker.svg");
+			background-size: 15px;
+			background-position: 20px 12px;
+		}
+		&--people {
+			background-image: url("../img/input_people.svg");
+		}
+		&--transport {
+			background-image: url("../img/input_transport.svg");
+        }
+        &-range-value {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1rem;
+            margin-top: 4px;
+        }
+	}
+	&--flying {
+		@include absoluteCenter;
+		top: 70px;
+		width: 50%;
+		z-index: 99;
+	}
+	.a-input {
+		height: auto;
+		font-size: 16px;
+		border: none;
+		width: 100%;
+		&:focus,
+		&:active {
+			height: auto;
+		}
+	}
+	.a-label {
+		font-size: 12px;
+		margin-bottom: $margin / 2;
     }
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pl">
 	<head>
-		<title>Tripio - Domyślna metoda płatności</title>
+		<title>Tripio - W promieniu lokalizacji</title>
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta
@@ -29,9 +29,9 @@
 	</head>
 	<body class="is-loggedin">
         <div class="l-header l-header__app l-header__app--bar">
-		    <div class="l-container">
+            <div class="l-container">
                 <div class="m-top">
-					<h1 class="m-top__title">Domyślna metoda płatności</h1>
+                    <h1 class="m-top__title">W promieniu lokalizacji</h1>
                 </div>
             </div>
         </div>
@@ -40,21 +40,29 @@
                 <div class="o-tiles">
                     <div class="m-tile">
                         <div class="m-tile__image">
-                            <img src="../img/cash.svg" alt="gotówka - wybór metody płatności" />
+                            <img width="50" src="../img/calendar_tile.svg" alt="w promieniu lokalizacji kalendarz" />
                         </div>
 
-                        <span class="m-tile__title">Gotówka</span>
-                        <span class="m-tile__value m-tile__value_success">Wybrana domyślna metoda płatności</span>
+                        <span class="m-tile__title">Od ... Do ...</span>
                     </div>
                     <div class="m-tile">
                         <div class="m-tile__image">
-                            <img src="../img/credit.svg" alt="karta kredytowa - metoda płatności" />
+                            <img width="50" src="../img/clock_tile.svg" alt="w promieniu lokalizacji wybór czasu" />
                         </div>
-                        <span class="m-tile__title">Karta</span>
-                        <span class="m-tile__value m-tile__value_error">Nie wybrano</span>
+                        <span class="m-tile__title">Na teraz</span>
                     </div>
                 </div>
-                <button class="a-button a-button_active">Potwierdź</button>
+                <form class="m-form">
+                    <div class="m-form__field m-form__field--icon m-form__field--people">
+                        <label for="people" class="a-label">Ilość osób</label>
+                        <input type="number" class="a-input" name="people" id="people" placeholder="1" />
+                    </div>
+                    <div class="m-form__field m-form__field--icon m-form__field--transport">
+                        <label for="transport" class="a-label">Ilość transportów</label>
+                        <input type="number" class="a-input" name="transport" id="transport" placeholder="1" />
+                    </div>
+                </form>
+                <button class="a-button a-button_active">Szukaj</button>
             </div>
         </div>
         <div class="l-footer">

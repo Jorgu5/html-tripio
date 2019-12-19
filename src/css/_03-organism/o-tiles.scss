@@ -30,18 +30,28 @@
 			font-size: 12px;
 			color: $font_color;
 			border: 2px solid $brand_light;
-			padding: $margin /2;
+			padding: $margin / 2;
 			&:hover,
 			&:focus {
 				border-color: #000;
 			}
 		}
 	}
-	&_offers {
+	&--offers {
 		grid-template-columns: 1fr;
 		.m-tile {
 			display: flex;
 			align-items: center;
+		}
+	}
+	&--listing {
+		margin: 0;
+		background: #fff;
+		overflow: scroll;
+		height: $deviceHeight;
+		grid-gap: 0;
+		.m-tile {
+			border-radius: 0;
 		}
 	}
 }

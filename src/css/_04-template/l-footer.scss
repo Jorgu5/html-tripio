@@ -1,8 +1,9 @@
 .l-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: #fff;
-    padding: 0 $margin1;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background: #fff;
+	padding: 0 $margin1;
+	z-index: 20;
 }

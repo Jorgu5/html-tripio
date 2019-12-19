@@ -3,4 +3,14 @@
 	color: #b6b6b6;
 	font-size: 1.25rem;
 	font-weight: 200;
+	&_radio {
+		font-weight: bold;
+		height: 52px;
+		border-radius: 25px;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+	}
 }

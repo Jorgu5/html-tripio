@@ -31,31 +31,19 @@
         <div class="l-header l-header__app l-header__app--bar">
 		    <div class="l-container">
                 <div class="m-top">
-					<h1 class="m-top__title">Domyślna metoda płatności</h1>
+					<h1 class="m-top__title">W promieniu lokalizacji</h1>
                 </div>
             </div>
         </div>
         <div class="l-main l-main_app">
-            <div class="l-container">
-                <div class="o-tiles">
-                    <div class="m-tile">
-                        <div class="m-tile__image">
-                            <img src="../img/cash.svg" alt="gotówka - wybór metody płatności" />
-                        </div>
-
-                        <span class="m-tile__title">Gotówka</span>
-                        <span class="m-tile__value m-tile__value_success">Wybrana domyślna metoda płatności</span>
-                    </div>
-                    <div class="m-tile">
-                        <div class="m-tile__image">
-                            <img src="../img/credit.svg" alt="karta kredytowa - metoda płatności" />
-                        </div>
-                        <span class="m-tile__title">Karta</span>
-                        <span class="m-tile__value m-tile__value_error">Nie wybrano</span>
-                    </div>
+            <form class="m-form m-form--flying">
+                <div class="m-form__field m-form__field--icon m-form__field--location">
+                    <input type="text" class="a-input" name="location" id="location" placeholder="Lokalizacja telefonu" />
                 </div>
-                <button class="a-button a-button_active">Potwierdź</button>
-            </div>
+            </form>
+             <div id="map"></div>
+            <button class="a-button a-button_active a-button--flying">Potwierdź</button>
+        </div>
         </div>
         <div class="l-footer">
             <div class="o-nav">
@@ -87,6 +75,10 @@
             </div>
             <a href="#" class="i"></a>
         </div>
-		</div>
+        </div>
+        <script src="../../js/map_radius.js"></script>
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7BZrxD7hzuQs76Hl7WawvzJdhOiG7g9E&callback=initMap">
+        </script>
 	</body>
 </html>

@@ -19,7 +19,7 @@
 		font-size: 12px;
 		color: $brand_color;
 		margin-top: 4px;
-		&_success{
+		&_success {
 			color: darken($valid_color, 5%);
 		}
 		&_error {
@@ -41,5 +41,12 @@
 	}
 	&__col + &__col {
 		margin-left: $margin1;
+	}
+	&--radio {
+		padding: 0;
+	}
+	&--marker {
+		box-shadow: none;
+		padding: 0;
 	}
 }

@@ -2,7 +2,7 @@
 	.t-text {
 		margin-top: 25px;
 	}
-	&_app {
+	&__app {
 		background: $brand-gradient;
 		padding-bottom: $margin1;
 		position: relative;
@@ -29,6 +29,12 @@
 			left: 50%;
 			margin-left: -10px;
 			bottom: 0;
+		}
+		&--bar {
+			padding-bottom: 5px;
+			.m-top {
+				border-bottom: none;
+			}
 		}
 	}
 }

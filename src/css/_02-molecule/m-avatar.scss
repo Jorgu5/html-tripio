@@ -10,6 +10,10 @@
 		margin: 0 auto;
 		.m-avatar__image {
 			border: 2px solid $brand_light;
+			width: 100%;
+			width: -moz-available;        
+			width: -webkit-fill-available;  
+			width: fill-available;
 		}
 	}
 	&__el_profile {
