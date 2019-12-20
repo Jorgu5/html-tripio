@@ -19,25 +19,25 @@
 	&:active,
 	&:hover,
 	&:focus {
-		background: transparent;
+		background-color: transparent;
 		border-color: $secondary_color;
 		color: $secondary_color;
 	}
-	&_clean {
-		background: transparent;
+	&--clean {
+		background-color: transparent;
 		border: 2px solid $secondary-color;
 		color: $secondary-color;
 		&:hover {
 			background-color: darken($secondary-color, 85%);
 		}
 	}
-	&_inactive {
+	&--inactive {
 		color: #fff;
 		background: $brand_light;
 		cursor: disabled;
 		pointer-events: none;
 	}
-	&_active {
+	&--active {
 		color: #fff;
 		background: $brand_gradient;
 		&:hover,
@@ -46,7 +46,7 @@
 			background: $brand_gradient_inverse;
 		}
 	}
-	&_facebook {
+	&--facebook {
 		color: #fff;
 		background: #4267b2;
 		&:hover {
@@ -54,14 +54,40 @@
 			color: #4267b2;
 		}
 	}
-	&_is-not-filled {
+	&--is-not-filled {
 		border-bottom: 2px solid $error_color;
 	}
-	&_is-filled {
+	&--is-filled {
 		border-bottom: 2px solid $valid_color;
 	}
 	&--flying {
 		@include absoluteCenter();
 		bottom: 70px;
+	}
+	&--listing {
+		color: #000;
+		background-size: 25px;
+		background-position: 5px 12px;
+		background-repeat: no-repeat;
+		padding-left: 35px;
+		border: none;
+		&:hover,
+		&:active,
+		&:focus {
+			color: $brand_color;
+			border: none;
+		}
+	}
+	&--chat {
+		background-image: url("../img/chat.svg");
+	}
+	&--delete {
+		background-image: url("../img/close.svg");
+		background-size: 18px;
+		background-position: 5px 15px;
+	}
+	&--success {
+		background-image: url("../img/tick.svg");
+		background-size: 24px;
 	}
 }

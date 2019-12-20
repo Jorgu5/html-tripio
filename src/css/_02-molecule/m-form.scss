@@ -9,10 +9,10 @@
 		margin-bottom: $input-space;
 		&--icon {
 			@include iconAsBackground;
-        }
-        &--range {
-            padding: 10px 20px;
-        }
+		}
+		&--range {
+			padding: 10px 20px;
+		}
 		&--location {
 			background-image: url("../img/marker.svg");
 			background-size: 15px;
@@ -23,13 +23,19 @@
 		}
 		&--transport {
 			background-image: url("../img/input_transport.svg");
-        }
-        &-range-value {
-            display: flex;
-            justify-content: space-between;
-            font-size: 1rem;
-            margin-top: 4px;
-        }
+		}
+		&--phone {
+			background-image: url("../img/phone.svg");
+		}
+		&--envelope {
+			background-image: url("../img/input_envelope.svg");
+		}
+		&-range-value {
+			display: flex;
+			justify-content: space-between;
+			font-size: 1rem;
+			margin-top: 4px;
+		}
 	}
 	&--flying {
 		@include absoluteCenter;
@@ -50,5 +56,5 @@
 	.a-label {
 		font-size: 12px;
 		margin-bottom: $margin / 2;
-    }
+	}
 }
