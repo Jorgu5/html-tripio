@@ -20,4 +20,20 @@
 		color: #fff;
 		font-weight: bold;
 	}
+	&__title {
+		margin-right: $margin;
+	}
+	&--profile {
+		flex-direction: column;
+		margin: $margin1 0;
+		color: #fff;
+		font-size: 1.5rem;
+		.m-rate__overall {
+			margin-top: $margin1;
+		}
+		.m-rate__value {
+			background: #000;
+			padding: 15px;
+		}
+	}
 }

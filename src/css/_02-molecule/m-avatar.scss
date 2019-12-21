@@ -4,16 +4,19 @@
 	}
 	&__el {
 		width: 160px;
-		height: 160px;
+		height: auto;
 		position: relative;
 		transition: $transition;
 		margin: 0 auto;
 		.m-avatar__image {
 			border: 2px solid $brand_light;
 			width: 100%;
-			width: -moz-available;        
-			width: -webkit-fill-available;  
+			width: -moz-available;
+			width: -webkit-fill-available;
 			width: fill-available;
+		}
+		&--small {
+			width: 120px;
 		}
 	}
 	&__el_profile {

@@ -6,7 +6,7 @@
 	justify-content: center;
 	grid-gap: $margin1;
 	margin: 32px auto;
-	&_long {
+	&--long {
 		grid-template-columns: 1fr;
 		.m-tile {
 			display: flex;
@@ -45,6 +45,7 @@
 			align-items: center;
 			flex-wrap: wrap;
 			justify-content: space-between;
+			cursor: default;
 			.t-title {
 				width: 100%;
 			}
