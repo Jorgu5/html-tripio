@@ -1,20 +1,15 @@
 var gulp = require("gulp");
-var validator = require("gulp-html");
 var sass = require("gulp-sass");
 var sassGlob = require("gulp-sass-glob");
-var spritesmith = require("gulp.spritesmith");
 var imagemin = require("gulp-imagemin");
 var pngquant = require("imagemin-pngquant");
 var runSequence = require("run-sequence");
 var browserSync = require("browser-sync");
-var iconfont = require("gulp-iconfont");
-var consolidate = require("gulp-consolidate");
 var plumberNotifier = require("gulp-plumber-notifier");
 var postcss = require("gulp-postcss");
 var autoprefixer = require("autoprefixer");
 var lost = require("lost");
 var bower = require("gulp-bower");
-var fs = require("fs");
 
 var path = {
 	src_assets: "src/assets/",
